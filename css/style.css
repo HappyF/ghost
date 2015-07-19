@@ -1,0 +1,628 @@
+body {
+  background: #222;
+  font-family: "Lato", sans-serif;
+  color: #ccc;
+}
+a { 
+  color: #FF99FF;
+  text-decoration: none;
+}
+h3 {
+  margin-top: 0;
+}
+#overlay {
+  background: rgba(0,0,0, 0.8);
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  display: none;
+}
+#share {
+  width: 400px;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 15%;
+  margin-right: auto;
+  margin-left: auto;
+  background: #222;
+  background: rgba(34, 34, 34, 0.8);
+  z-index: 2000;
+  display: none;
+}
+#share .inner {
+  padding: 20px;
+}
+#share textarea {
+  width: 100%;
+}
+/*#legend {
+  width: 310px;
+  position: fixed;
+  bottom: 100px;
+  background: #222;
+  background: rgba(34, 34, 34, 0.8);
+  right: 40px;
+  font-size: 12px;
+  color: #999;
+  padding: 5px;
+  text-align: right;
+  z-index: 10;
+}
+#legend b {
+  color: #ccc;
+}
+.circle-marker {
+  background: #FF99FF;
+  height: 28px;
+  width: 28px;
+  border-radius: 26px 26px 26px 26px;
+  text-indent: -9999px;
+  opacity: 0.8;
+  float: right;
+  margin: 0 0 0 10px;
+}*/
+#title a {
+  position: fixed;
+  bottom: 40px;
+  left: 40px;
+  font-size: 35px;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 1px 1px 1px #000;
+}
+#logo {
+  position: fixed;
+  bottom: 32px;
+  right: 40px;
+  font-size: 40px;
+  font-weight: bold;
+  text-indent: -9999px;
+  background: transparent url("img/l.jpg") no-repeat;
+  width: 40px;
+  height: 54px;
+  background-size: 100%;
+  display: block;
+}
+#country {
+  font-size: 16px;
+  padding: 10px 10px 10px 15px;
+}
+#year { 
+  position: fixed;
+  top: 40px;
+  right: 40px;
+  border: 1px solid #444;
+  width: 200px;
+  color: #ccc;
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold;
+  padding: 10px;
+  display: none;
+}
+#tour {
+  width: 320px;
+  background: #222;
+  background: rgba(34, 34, 34, 0.8);
+  height: 380px;
+  position: fixed;
+  bottom: 100px;
+  left: 40px;
+}
+#tour-close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  display: block;
+  width: 10px;
+  height: 10px;
+  color: #ccc;
+  font-size: 14px;
+}
+#tour .inner {
+  padding: 20px;
+}
+#next-btn {
+ position: absolute;
+ right: 20px;
+ bottom: 20px;
+ color: #FF99FF;
+}
+#prev-btn {
+ position: absolute;
+ left: 20px;
+ bottom: 20px;
+ color: #FF99FF;
+}
+.deaths-label {
+  width: 50px;
+}
+#daily-deaths1 { 
+  font-size: 30px;
+}
+#annual-deaths1 { 
+  font-size: 30px;
+}
+#daily-deaths2 { 
+  font-size: 30px;
+}
+#annual-deaths2 { 
+  font-size: 30px;
+}
+td.label {
+  font-size: 13px;
+  text-transform: uppercase;
+}
+td {
+  width: 200px;
+}
+#side {
+  position: fixed;
+  top: 40px;
+  right: 40px;
+  display: none;
+  width: 320px;
+  background: #222;
+  background: rgba(34, 34, 34, 0.8);
+  z-index: 100;
+}
+#side .chart {
+  height: 90px;
+}
+#side #causes-chart {
+  height: 200px;
+}
+.year-label {
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px #000;
+}
+.indicator { 
+  position: relative;
+  height: 40px;
+  border: 1px solid #444;
+  width: 300px;
+  background: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 1px 7px rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+}
+#layer-2012-active .layer-2012-stats {
+  color: #fff;
+}
+#layer-2012-active .bar-deaths1 {
+  background: #fff;
+}
+#layer-2012-active .bar-deaths1-value {
+  color: #fff;
+}
+#layer-1990-active .layer-1990-stats {
+  color: #fff;
+}
+#layer-1990-active .bar-deaths2 {
+  background: #fff;
+}
+#layer-1990-active .bar-deaths2-value {
+  color: #fff;
+}
+#births1, #births2 {
+  display: none;
+}
+.info {
+  height: 80px;
+  padding: 40px 20px;
+  z-index: 10;
+  background: #222;
+  display: none;
+  box-shadow: 0 1px 7px rgba(0, 0, 0, 0.8);
+}
+.year-stats {
+  color: #999;
+}
+.bar {
+  width: 0px;
+  height: 20px;
+  position: absolute;
+  left: 0;
+  bottom: -20px;
+  background: #999;
+  color: #000;
+  box-shadow: 0 1px 7px rgba(0, 0, 0, 0.8);
+  max-width: 100%;
+}
+.bar-value {
+  position: absolute;
+  left: 10px;
+  top: 8px;
+  width: 200px;
+  color: #999;
+} 
+#clock {
+  height: 40px;
+  width: 40px;
+  background: url("/images/clock-sprite.png") no-repeat;
+}
+.bar-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 100%;
+}
+.bar-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 0px;
+  width: 100%;
+}
+.ind {
+ position: absolute;
+ right: 0px;
+ bottom: 0;
+ height: 800px;
+ width: 1px;
+ background: #777;
+}
+#map {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+}
+.day { 
+  background: #ccc;
+  color: #222;
+  border-radius: 50px 50px 50px 50px;
+  width: 100px;
+  height: 100px;
+  position: fixed;
+  right: 40px;
+  top: 40px;
+  box-shadow: 0 1px 7px rgba(0, 0, 0, 0.8);
+  display: none;
+}
+.day-label {
+  position: absolute;
+  top: 18px;
+  color: #000;
+  text-align: center;
+  width: 100px;
+}
+.day-inner {
+  position: absolute;
+  top: 38px;
+  width: 100px;
+  text-align: center;
+  font-size: 30px;
+}
+.leaflet-control-zoom {
+  top: 80px;
+  left: 30px;
+  
+}
+.leaflet-control-mapbox-share {
+   top: 100px;
+   left: 30px;
+}
+.leaflet-popup-content-wrapper {
+  color: #222;
+  font-size: 16px;
+}
+/*#layers {
+  position: fixed;
+  left: 40px;
+  top: 40px;
+  box-shadow: 0 1px 7px rgba(0, 0, 0, 0.8);
+  border-radius: 20px 20px 20px 20px;
+}*/
+/*.layer-switch {
+  width: 100px;
+  display: block;
+  float: left;
+  text-align: center;
+  line-height: 2;
+  font-size: 15px;
+  opacity: 0.9;
+  background: #333;
+  color: #fff;
+}
+.layer-switch.active {
+  background: #BF73BF;
+  color: #fff;
+}
+#layer-1990 {
+  border-radius: 20px 0 0 20px;
+  border: 1px solid #333;
+}
+#layer-2012 {
+  border-radius: 0 20px 20px 0;
+  border: 1px solid #333;
+}
+.layer-switch:hover {
+  background: #777;
+}*/
+.time {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  background: #fff;
+  opacity: 0.5;
+}
+.time-ind {
+  width: 2px;
+  height: 1600px;
+  background: #fff;
+  position: absolute;
+  opacity: 0.5;
+  right: 0;
+  bottom: 0;
+  box-shadow: 0 1px 7px rgba(0, 0, 0, 0.8);
+}
+.cl-overlay { 
+ position: absolute;
+ left: 0;
+ top: 0;
+ width: 100%;
+ height: 100%;
+ background: #000;
+ opacity: 0.8;
+ z-index: 1000;
+ cursor: pointer;
+ }
+.cl-stats-overlay {
+ position: fixed;
+ background: #222;
+ width: 600px;
+ height: 60%;
+ top: 15%;
+ border-radius: 20px 20px 20px 20px;
+  margin-left: auto;
+ margin-right: auto;
+ left: 0;
+ z-index: 1001;
+ right: 0;
+}
+.stats-inner {
+ padding: 20px;
+}
+#layer-1990-active #causes-chart, 
+#layer-1990-active .causes-title,
+#layer-1990-active #reduction-chart, 
+#layer-1990-active .reduction-title {
+  display: none;
+}
+#progress {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 5px;
+  background: #FF99FF;
+}
+.tour-item-0 #prev-btn {
+  display: none;
+}
+.tour-item-1 #progress {
+  width: 5%;
+}
+.tour-item-2 #progress {
+  width: 10%;
+}
+.tour-item-3 #progress {
+  width: 15%;
+}
+.tour-item-4 #progress {
+  width: 20%;
+}
+.tour-item-5 #progress {
+  width: 25%;
+}
+.tour-item-6 #progress {
+  width: 30%;
+}
+.tour-item-7 #progress {
+  width: 35%;
+}
+.tour-item-8 #progress {
+  width: 40%;
+}
+.tour-item-9 #progress {
+  width: 45%;
+}
+.tour-item-10 #progress {
+  width: 50%;
+}
+.tour-item-11 #progress {
+  width: 55%;
+}
+.tour-item-12 #progress {
+  width: 60%;
+}
+.tour-item-13 #progress {
+  width: 65%;
+}
+.tour-item-14 #progress {
+  width: 70%;
+}
+.tour-item-15 #progress {
+  width: 75%;
+}
+.tour-item-16 #progress {
+  width: 80%;
+}
+.tour-item-17 #progress {
+  width: 85%;
+}
+.tour-item-18 #progress {
+  width: 90%;
+}
+.tour-item-19 #progress {
+  width: 100%;
+}
+.tour-item-19 #next-btn {
+  display: none;
+}
+.leaflet-popup {
+  opacity: 0.8 !important;
+}
+.causes-title, 
+.rate-title, 
+.crude-title,
+.reduction-title {
+  text-align: center;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 20px;
+}
+#reduction-chart {
+  font-size: 100px;
+  text-align: center;
+  color: #73DCFF;
+  opacity: 0.7;
+  position: relative;
+}
+.rate-arrow {
+  display: block;
+  position: absolute;
+  left: 15px;
+  bottom: 80px;
+  z-index: 100;
+  font-size: 20px;
+}
+#tour-control {
+  width: 30px;
+  height: 30px;
+  background: #444 url("img/info.png") 0px;
+  display: block;
+  position: fixed;
+  left: 40px;
+  bottom: 100px;
+  font-size: 27px;
+  border-radius: 2px 2px 2px 2px;
+  text-indent: -9999px;
+  color: #fff;
+  z-index: 10;
+  display: none;
+}
+/*#share-control {
+  width: 30px;
+  height: 30px;
+  background: #444 url("images/map-sprite.png") -60px;
+  display: block;
+  position: fixed;
+  left: 295px;
+  top: 42px;
+  font-size: 27px;
+  border-radius: 2px 2px 2px 2px;
+  text-indent: -9999px;
+  color: #fff;
+  z-index: 10;
+}*/
+/*#info-control {
+  width: 30px;
+  height: 30px;
+  background: #444 url("images/map-sprite.png") -30px;
+  display: block;
+  position: fixed;
+  left: 260px;
+  top: 42px;
+  font-size: 27px;
+  border-radius: 2px 2px 2px 2px;
+  text-indent: -9999px;
+  color: #fff;
+  z-index: 10;
+}*/
+/*#info {
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 15%;
+  margin-right: auto;
+  margin-left: auto;
+  background: rgba(34, 34, 34, 0.8);
+  z-index: 2000;
+  display: none; 
+}
+#info .inner {
+  padding: 20px;
+}*/
+#tour-control:hover,
+/*#share-control: hover {
+  background: #666;
+}*/
+#fullscreen-control {
+  position: fixed;
+  right: 0px;
+  border-radius: 0 0 0 3px;
+  top: 0px;
+  font-size: 12px;
+  text-transform: uppercase;
+  padding: 6px;
+  z-index: 100;
+  background: #222;
+  display: none;
+  color: #eee;
+}
+
+
+
+/*加载相应的CSS文件，建议根据不同的屏幕分辨率，选择应用不同的CSS规则*/
+@media (max-width: 719px) {
+  #logo,
+  #causes-chart,
+  #layers,
+  .leaflet-control-zoom,
+  .causes-title,
+  #crude-chart,
+  .crude-title,
+  .rate-title,
+  #share-control,
+  #info-control,
+  #reduction-chart,
+  .reduction-title,
+  #legend,
+  .rate-arrow {
+    display: none;
+  }
+  #tour {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    left: 0;
+    display: none;
+    z-index: 2;
+  }
+  #tour-control {
+    display: block;
+  }
+  #tour .inner {
+    padding: 20px 20px 40px 20px;
+  }
+  #tour-control {
+    bottom: 15px;
+    left: 10px;
+  }
+  #side {
+    top: 0;
+    left 0;
+    right: 0;
+    width: 100%;
+  }
+  #title a {
+    right: 10px;
+    bottom: 10px;
+    left: initial;
+    font-size: 16px;
+    z-index: 1;
+    
+  }
+}
